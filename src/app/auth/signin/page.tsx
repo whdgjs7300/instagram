@@ -20,7 +20,7 @@ export default async function SignPage({searchParams : {callbackUrl}} : Props) {
   }
 
   const providers = (await getProviders()) ?? {};
-
+  
 
   return (
     <section className='flex justify-center mt-24'>
