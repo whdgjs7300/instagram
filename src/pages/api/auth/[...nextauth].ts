@@ -14,6 +14,7 @@ export const authOptions: NextAuthOptions = {
     ],
     callbacks: {
       async signIn({user : {id, name, image, email}}) {
+        
         if (!email) {
           return false;
         }
