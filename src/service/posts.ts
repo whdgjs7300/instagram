@@ -1,4 +1,5 @@
-import { client } from "./sanity";
+import { SimplePost } from "@/model/post";
+import { client, urlFor } from "./sanity";
 
 
 const simplePostProjection = `
@@ -20,5 +21,5 @@ export async function getFollowingPostsOf(username : string) {
         `*[_type == "post" && author->username == "${username}" 
             || author._ref in *[_type == "user" && username == "${username}"].following[]._ref]
             | order(_createdAt desc){${simplePostProjection}}`
-    )
+    ).then(post => post.map((post : SimplePost) => ({...post, image : urlFor(post.image)})))
 }
