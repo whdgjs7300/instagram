@@ -7,6 +7,7 @@ import CommentForm from './CommentForm';
 import ActionBar from './ActionBar';
 import ModalPortal from './ui/ModalPortal';
 import PostModal from './PostModal';
+import PostDetail from './PostDetail';
 
 
 type Props = {
@@ -20,10 +21,12 @@ export default function PostListCard({post, priority = false} : Props) {
 
     return (
         <article className='rounded-lg shadow-md border border-gray-200'>
+
             <div className='flex items-center p-2'>
                 <Avatar image={userImage} size='medium' highlight />
                 <span className=' text-gray-900 font-bold ml-2'>{username}</span>
             </div>
+
             <Image 
             onClick={()=> setOpenModal(true)}
             className='w-full object-cover aspect-square'
@@ -35,14 +38,16 @@ export default function PostListCard({post, priority = false} : Props) {
             />
             
             <ActionBar 
-            likes={likes} 
-            username={username} 
+            likes={likes}
+            username={username}
             text={text} 
             createdAt={createdAt} />
             <CommentForm />
             {
                 openModal && <ModalPortal>
-                    <PostModal onClose={()=> setOpenModal(false)}><p>포스트</p></PostModal>
+                    <PostModal onClose={()=> setOpenModal(false)}>
+                        <PostDetail post={post} />
+                    </PostModal>
                 </ModalPortal>
             }
         </article>
