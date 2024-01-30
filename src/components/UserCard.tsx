@@ -1,10 +1,10 @@
-import { ProfileUser } from '@/model/user'
+import { SearchUser } from '@/model/user'
 import Link from 'next/link';
 import React from 'react'
 import Avatar from './Avatar';
 
 type Props = {
-    user : ProfileUser;
+    user : SearchUser;
 }
 // 넥스트 Link 태그를 사용하면 미리 클릭 후 해당 페이지를 프리 패칭함 !
 export default function UserCard({user : {name, username, image, following, followers}} : Props) {
