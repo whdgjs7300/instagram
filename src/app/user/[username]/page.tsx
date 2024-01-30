@@ -9,7 +9,7 @@ type Props = {
 
 export default async function UserPage({params : {username}} : Props) {
     const user = await getUserForProfile(username);
-
+    console.log(user)
     if(!user) {
         notFound();
     }
