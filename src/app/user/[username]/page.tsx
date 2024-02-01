@@ -15,6 +15,9 @@ export default async function UserPage({params : {username}} : Props) {
     }
 
     return (
-        <UserProfile user={user} />
+        <>
+            <UserProfile user={user} />
+            
+        </>
     )
 }
