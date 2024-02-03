@@ -12,7 +12,7 @@ export default function UserPosts({user : {username}} : Props) {
     // /api/users/${username}/liked
     // /api/users/${username}/bookmarks
 
-    const [tab, setTab] = useState('posts');
+    const [tab, setTab] = useState('liked');
     const {data : posts, isLoading, error} = useSWR(`/api/users/${username}/${tab}`)
     console.log(posts);
 
