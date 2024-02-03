@@ -42,12 +42,13 @@ export default function PostListCard({post, priority = false} : Props) {
             createdAt={createdAt} />
             <CommentForm />
             {
-                openModal && <ModalPortal>
+                openModal && (
+                <ModalPortal>
                     <PostModal onClose={()=> setOpenModal(false)}>
                         <PostDetail post={post} />
                     </PostModal>
                 </ModalPortal>
-            }
+            )}
         </article>
     )
 }
